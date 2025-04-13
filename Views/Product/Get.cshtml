@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MVC_Project_13_April.Models.Product>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<a asp-action="Create" class="btn btn-primary">Create New Product</a>
+<br />
+<p>Rushikesh Kotwal Software Engineer.</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr class="bg-primary">
+                <td class ="table-danger">@item.Id</td>
+                <td class="table-warning">@item.Name</td>
+                <td class="table-success">@item.Description</td>
+            <td>@item.Category</td>
+            </tr>
+        }
+    </tbody>
+</table>

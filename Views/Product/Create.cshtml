@@ -1,0 +1,38 @@
+﻿@model MVC_Project_13_April.Models.Product;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@using (Html.BeginForm("", "", FormMethod.Post))
+{
+    <div>
+       
+        <div class="align-self-auto">
+            @Html.LabelFor(testc => testc.Name)
+        </div>
+        <div>
+            @Html.TextBoxFor(testc => testc.Name)
+        </div>
+
+        <div class="align-self-auto">
+            @Html.LabelFor(testc => testc.Description)
+        </div>
+        <div>
+            @Html.TextBoxFor(testc => testc.Description)
+        </div>
+
+        <div class="align-self-auto">
+            @Html.LabelFor(testc => testc.Category)
+        </div>
+        <div>
+            @Html.TextBoxFor(testc => testc.Category)
+        </div>
+
+        <div>
+            <input type="submit" value="Save"/>
+        </div>
+    </div>
+}
+<a asp-action="Get" class="btn btn-success">View Details</a>
