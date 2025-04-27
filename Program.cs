@@ -32,7 +32,7 @@ namespace MVC_Project_13_April
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Product}/{action=Create}/{id?}");
+                pattern: "{controller=WellCome}/{action=Login}/{id?}");
 
             app.Run();
         }

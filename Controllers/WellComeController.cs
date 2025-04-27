@@ -25,11 +25,24 @@ namespace MVC_Project_13_April.Controllers
             return View();
         }
 
-      
+        
         public IActionResult Login() 
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Login(User user)
+        {
+            var result = _context.users.FirstOrDefault(u => u.Username == user.Username && u.Password == user.Password);
+            if (result != null)
+            {
+                return RedirectToAction("Get", "Product");
+            }
+            else {
+                return RedirectToAction("Login");
+            }
+            return View();
+        }
     }
 }
