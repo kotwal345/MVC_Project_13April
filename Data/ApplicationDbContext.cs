@@ -11,5 +11,7 @@ namespace MVC_Project_13_April.Data
         }
 
         public DbSet<Product> products { get; set; }
+
+        public DbSet<User> users { get; set; }
     }
 }

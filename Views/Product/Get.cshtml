@@ -9,23 +9,49 @@
 <br />
 <p>Rushikesh Kotwal Software Engineer.</p>
 <table class="table">
+
     <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Description</th>
             <th>Category</th>
+
         </tr>
+
     </thead>
+
     <tbody>
-        @foreach(var item in Model)
+
+        @foreach (var itam in Model)
         {
-            <tr class="bg-primary">
-                <td class ="table-danger">@item.Id</td>
-                <td class="table-warning">@item.Name</td>
-                <td class="table-success">@item.Description</td>
-            <td>@item.Category</td>
+            <tr>
+                <td>@itam.Id</td>
+                <td>@itam.Name</td>
+                <td>@itam.Description</td>
+                <td>@itam.Category</td>
+
+                <td>
+                    <a asp-action="GetbyId" asp-route-id="@itam.Id" class="btn btn-dark">View</a>
+                </td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@itam.Id" class="btn btn-dark">Update</a>
+                </td>
+
+                <td>
+                    <form asp-action="Delete" asp-route-id="@itam.Id" style="display:inline;"
+                          onclick="return confirm('are you sure to delete this record');">
+
+                        <button type="submit">Delete</button>
+                    </form>
+
+                </td>
+
+
+
             </tr>
+
         }
+
     </tbody>
 </table>

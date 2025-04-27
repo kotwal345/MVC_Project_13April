@@ -36,5 +36,48 @@ namespace MVC_Project_13_April.Controllers
             
             return View(prodList);
         }
+
+        [HttpGet]
+        public IActionResult GetbyId(int id)
+        {
+            var Products = _context.products.FirstOrDefault(p => p.Id == id);
+
+            return View(Products);
+        }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var Products = _context.products.FirstOrDefault(p => p.Id == id);
+
+            _context.products.Remove(Products);
+            _context.SaveChanges();
+
+            return RedirectToAction("Get");
+
+        }
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            var Products = _context.products.FirstOrDefault(p => p.Id == id);
+
+            return View(Products);
+        }
+        [HttpPost]
+        public IActionResult Update(Product product)
+        {
+            var producUpdate = _context.products.FirstOrDefault(p => p.Id == product.Id);
+
+            producUpdate.Name = product.Name;
+            producUpdate.Description = product.Description;
+            product.Category = product.Category;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Get");
+
+
+
+
+        }
     }
 }

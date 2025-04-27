@@ -5,9 +5,10 @@
 @{
 }
 
-@using (Html.BeginForm("", "", FormMethod.Post))
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post))
 {
-    <div>
+    <div class="align-self-auto">
        
         <div class="align-self-auto">
             @Html.LabelFor(testc => testc.Name)
