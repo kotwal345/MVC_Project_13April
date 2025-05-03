@@ -46,11 +46,22 @@ namespace MVC_Project_13_April.Controllers
             return View();
         }
 
+
+        /// <summary>
+        /// This Method Open Only ChangePassword View
+        /// </summary>
+        /// <returns></returns>
         public IActionResult ChangePassword()
         {
             return View();
         }
 
+
+        /// <summary>
+        /// This Controller is For Change Password Logic
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult ChangePassword(ChangePassword model)
         {
@@ -69,6 +80,26 @@ namespace MVC_Project_13_April.Controllers
                 ModelState.AddModelError("", "Password or username is invalid");
             }
             return RedirectToAction("Login");
+        }
+
+        /// <summary>
+        /// This Method Open Only ForgetPassword View
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// This Controller is used for Forget Password Logic 
+        /// </summary>
+        /// <param name="forget"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult ForgetPassword(ForgetPassword forget)
+        {
+            return View();
         }
     }
 }
