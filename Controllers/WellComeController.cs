@@ -40,9 +40,35 @@ namespace MVC_Project_13_April.Controllers
                 return RedirectToAction("Get", "Product");
             }
             else {
+                
                 return RedirectToAction("Login");
             }
             return View();
+        }
+
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ChangePassword(ChangePassword model)
+        {
+            var user = _context.users.FirstOrDefault(u => u.Username == model.Username);
+
+
+            if (user != null&& user.Password == model.CurrentPassword)
+            {
+                ModelState.AddModelError("", "User not found.");
+                user.Password = model.ConfirmPassword;
+                _context.SaveChanges();
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Password or username is invalid");
+            }
+            return RedirectToAction("Login");
         }
     }
 }
